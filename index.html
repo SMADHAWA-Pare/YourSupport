@@ -1,0 +1,91 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Personal Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Smart Personal Manager</h1>
+    <nav>
+      <button onclick="showSection('finance')">Keuangan</button>
+      <button onclick="showSection('health')">Kesehatan</button>
+      <button onclick="showSection('tasks')">Tugas Sekolah</button>
+      <button onclick="showSection('learning')">Materi Pembelajaran</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Pengelolaan Uang -->
+    <section id="finance" class="hidden">
+      <h2>Pengelolaan Uang</h2>
+      <form id="finance-form">
+        <label>Jenis:
+          <select id="transaction-type">
+            <option value="income">Pemasukan</option>
+            <option value="expense">Pengeluaran</option>
+          </select>
+        </label>
+        <label>Jumlah:
+          <input type="number" id="amount" required min="0" />
+        </label>
+        <label>Deskripsi:
+          <input type="text" id="description" required />
+        </label>
+        <button type="submit">Tambah</button>
+      </form>
+      <div id="finance-summary"></div>
+      <ul id="transaction-list"></ul>
+    </section>
+
+    <!-- Kontrol Kesehatan -->
+    <section id="health" class="hidden">
+      <h2>Kontrol Kesehatan</h2>
+      <form id="health-form">
+        <label>Tinggi Badan (cm):
+          <input type="number" id="height" required min="50" max="300" />
+        </label>
+        <label>Berat Badan (kg):
+          <input type="number" id="weight" required min="10" max="500" />
+        </label>
+        <button type="submit">Hitung BMI</button>
+      </form>
+      <div id="bmi-result"></div>
+    </section>
+
+    <!-- Pengelolaan Tugas -->
+    <section id="tasks" class="hidden">
+      <h2>Pengelolaan Tugas Sekolah</h2>
+      <form id="task-form">
+        <label>Nama Tugas:
+          <input type="text" id="task-name" required />
+        </label>
+        <label>Deadline:
+          <input type="date" id="task-deadline" required />
+        </label>
+        <button type="submit">Tambah Tugas</button>
+      </form>
+      <ul id="task-list"></ul>
+    </section>
+
+    <!-- Materi Pembelajaran & Saran -->
+    <section id="learning" class="hidden">
+      <h2>Materi Pembelajaran</h2>
+      <form id="learning-form">
+        <label>Masukkan topik materi:</label>
+        <input type="text" id="learning-topic" required />
+        <button type="submit">Cari Saran Materi</button>
+      </form>
+      <div id="learning-suggestions"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Smart Personal Manager</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
